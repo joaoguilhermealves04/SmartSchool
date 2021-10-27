@@ -27,7 +27,12 @@ namespace SmartScoolApi.net
         {
             services.AddDbContext<SmartContext>(
                 context=> context.UseSqlite(Configuration.GetConnectionString("Defualt")));
-            services.AddControllersWithViews();
+
+            services.AddScoped<IRepository,Repository>();
+
+            services.AddControllersWithViews()
+                     .AddNewtonsoftJson(opt=>opt.SerializerSettings.ReferenceLoopHandling=
+                     Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

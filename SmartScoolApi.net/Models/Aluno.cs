@@ -7,6 +7,8 @@ namespace SmartScoolApi.net.Models
 {
     public class Aluno
     {
+        internal object id;
+
         public Aluno()
         {
         }
