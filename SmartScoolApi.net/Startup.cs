@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace SmartScoolApi.net
             services.AddDbContext<SmartContext>(
                 context=> context.UseSqlite(Configuration.GetConnectionString("Defualt")));
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IRepository,Repository>();
 
             services.AddControllersWithViews()

@@ -22,8 +22,14 @@ namespace SmartScoolApi.net.Models
         }
         public int Id { get; set; }
         public string Nome { get; set; }
+        public int CargoHoraria { get; set; }
+        public int? PrerequistoId { get; set; } = null;
+        public Disciplina Prerequisto { get; set; }
         public int ProfessorId { get; set; }
         public Professor Professor { get; set; }
+
+        public int CursoId { get; set; }
+        public Curso curso { get; set; }
 
         public IEnumerable<AlunoDisciplina> AlunoDisciplina { get; set; }
     }

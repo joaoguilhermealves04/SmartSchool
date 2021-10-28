@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartScoolApi.net.Data;
+using SmartScoolApi.net.Dtos;
 using SmartScoolApi.net.Models;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,13 @@ namespace SmartScoolApi.net.Controllers
     {
         
         private readonly IRepository _repo;
+        private readonly IMapper _mapper;
 
-        public AlunoControllers(IRepository repo)
+        public AlunoControllers(IRepository repo,IMapper mapper)
         {
           
             _repo = repo;
+            _mapper = mapper;
         }
 
        
@@ -28,8 +32,8 @@ namespace SmartScoolApi.net.Controllers
         [HttpGet]
         public IActionResult GetResult()
         {
-            var result = _repo.GetAllALunos(true);
-            return Ok(result);
+            var alunos = _repo.GetAllALunos(true);
+            return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));
 
         }
 

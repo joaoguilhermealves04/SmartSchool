@@ -36,7 +36,7 @@ namespace SmartScoolApi.net.Data
                              .ThenInclude(d => d.Professor);
             }
 
-            query = query.AsNoTracking().OrderBy(a => a.id)
+            query = query.AsNoTracking().OrderBy(a => a.Id)
                                         .Where(aluno => aluno.AlunoDisciplina.Any(aluno => aluno.DisciplinaId == disciplinaid));
             return query.ToArray();
 
@@ -53,7 +53,7 @@ namespace SmartScoolApi.net.Data
                              .ThenInclude(d => d.Professor);
             }
 
-            query = query.AsNoTracking().OrderBy(a => a.id);
+            query = query.AsNoTracking().OrderBy(a => a.Id);
 
             return query.ToArray();
         }
@@ -103,7 +103,7 @@ namespace SmartScoolApi.net.Data
                              .ThenInclude(d => d.Professor);
             }
 
-            query = query.AsNoTracking().OrderBy(a => a.id)
+            query = query.AsNoTracking().OrderBy(a => a.Id)
                                         .Where(aluno => aluno.Id == aluno.Id);
             return query.FirstOrDefault();
         }

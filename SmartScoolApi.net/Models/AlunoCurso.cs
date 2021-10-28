@@ -5,22 +5,24 @@ using System.Threading.Tasks;
 
 namespace SmartScoolApi.net.Models
 {
-    public class AlunoDisciplina
+    public class AlunoCurso
     {
-        public AlunoDisciplina() { }
-        public AlunoDisciplina(int alunoId, Aluno aluno, int disciplinaId)
+        public AlunoCurso() { }
+        public AlunoCurso(int alunoId, Aluno aluno, int cursoId)
         {
             this.AlunoId = alunoId;
 
-            this.DisciplinaId = disciplinaId;
+            this.CursoId = cursoId;
 
         }
         public int AlunoId { get; set; }
         public Aluno Aluno { get; set; }
         public DateTime Inicio { get; set; } = DateTime.Now;
         public DateTime? DataFim { get; set; } = null;
-        public int? Nota { get; set; } = null;
-        public int DisciplinaId { get; set; }
-        public Disciplina Disciplina { get; set; }
+
+        public int CursoId { get; set; }
+        public Curso Curso { get; set; }
+
+
     }
 }
